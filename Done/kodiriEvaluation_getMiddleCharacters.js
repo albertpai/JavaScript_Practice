@@ -38,3 +38,17 @@ function middleWords(word) {
 
 middleWords("Claire")
 
+
+//
+function getMiddle(word) {
+    array = word.split('')
+    if (word.length % 2 === 0) {
+        var middle = array.slice(word.length / 2 - 1, word.length / 2 + 1)
+    }
+    else {
+        var middle = array.slice(parseInt(word.length / 2), parseInt(word.length / 2) + 1)
+    }
+    return middle.join('')
+}
+console.log(getMiddle("Claire"))
+
