@@ -3,7 +3,7 @@ function sum (array) {
         return total + value
     })
 }
-console.log(sum([2, 4]));
+console.log(sum([2, 4, 1]));
 
 
 //

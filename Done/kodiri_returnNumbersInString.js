@@ -9,3 +9,9 @@ function getNumber(string) {
 
 console.log(getNumber('123abc4de56'))
 
+
+function getNumber(string) {
+    return string.split('').filter(item => !isNaN(item)).join('')
+}
+
+console.log(getNumber('123abc4de56'))
