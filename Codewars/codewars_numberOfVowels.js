@@ -38,15 +38,6 @@ function getCount(str) {
   return str.split('').filter(letter => vowels.includes(letter)).length;
 }
 
-
-//My answer to kodiri challenge review
-function getCount(str) {
-	let vowels = ['a', 'e', 'i', 'o', 'u']
-	return str.split('').filter(v=>vowels.includes(v)).length
-}
-
-console.log(getCount('seflijpoijdwpoaw'))
-
 //
 function getCount(str) {
   for (var n = 0, i = 0; i < str.length; i++) {
