@@ -12,11 +12,11 @@ multiply(-3)==-15
 */
 
 function multiply(number){
-  x = number >= 0 ? number.toString().length : number.toString().length -1
-  return number * Math.pow(5, x)
+  x = number >= 0 ? number.toString().length : number.toString().length -1;
+  return number * Math.pow(5, x);
 }
 
-console.log(multiply(-3))
+console.log(multiply(-3));
 
 // Best Practices
 function multiply(number) {
