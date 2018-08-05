@@ -48,7 +48,7 @@ function longest(s1, s2) {
     return (s1 + s2).split('').sort().join('').replace(/(.)\1+/g, '$1');
 }
 
-// Brilliant solution. Use sort and filter.
+//Brilliant solution. Use sort and filter.
 function longest(s1, s2) {
     return (s1+s2).split('').sort().filter((a,b,c)=>a!==c[b-1]).join('');
   }

@@ -1,4 +1,4 @@
-
+//Divide each number by the bext one.
 
 //Use forEach
 var array2 = [];
@@ -93,3 +93,31 @@ function divideByNextNumber(numberStr) {
 }
 
 console.log(divideByNextNumber('1246478'))
+
+
+//
+const number = '63'
+
+function divideByNextNumber (){
+    let newNumber = number.split('').reduce((total, cur, index) => {
+            division = Math.floor(Number(cur) / (Number (number[index+1] || 1 )))
+            total.push(String(division))
+            return total
+    }, [])
+    return newNumber.join('')
+}
+
+console.log(divideByNextNumber('number'))
+
+
+// 'let newNumber' cannot be omitted.
+function divideByNextNumber(nstr) {
+	let newNumber = nstr.split('').reduce((acc, cur, i)=>{
+		let d = Math.floor(Number(cur)/(Number(nstr[i+1]) || 1))
+		acc.push(d.toString())
+		return acc
+	},[])
+	return newNumber.join('')
+}
+
+console.log(divideByNextNumber('63'))

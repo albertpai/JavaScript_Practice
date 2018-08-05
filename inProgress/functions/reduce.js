@@ -73,6 +73,15 @@ const reducer = (acc, value) => acc + value;
 console.log(array1.reduce(reducer))
 console.log(array1.reduce(reducer, 10))
 
+// Find the sum of an array of numbers
+let a = [1, 2, 3];
+function sum(arr) {
+    return arr.reduce((acc, v) => {
+        return acc + v
+    })
+}
+console.log(sum(a))
+
 //Calling reduce() on an empty array without an initial value is an error.
 const array1 = [0];
 const reducer = (acc, value) => acc + value;
@@ -284,4 +293,132 @@ console.log(allbooks)
 
 //Remove duplicate items in array
 
+var arr = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4];
 
+let result = function (data){
+    newData = data.sort().reduce(
+        (acc, cur) => {
+            let length = acc.length
+            if (length === 0 || acc[length-1] !== cur){
+                acc.push(cur)
+            }
+            return acc
+        }, [])
+    return newData
+}
+
+console.log(result(arr))
+
+//
+let arr = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4];
+let result = arr.sort().reduce((accumulator, current) => {
+    const length = accumulator.length
+    if (length === 0 || accumulator[length - 1] !== current) {
+        accumulator.push(current);
+    }
+    return accumulator;
+}, []);
+console.log(result); //[1,2,3,4,5]
+
+
+//find the average with reduce
+//https://medium.freecodecamp.org/reduce-f47a7da511a9
+const euros = [50, 30, 80, 100]
+
+const average = euros.reduce((total, amount, index, array) => {
+    if (index === array.length-1){
+        total += amount
+        return total/array.length;
+    }
+    else {
+        return total + amount;
+    }
+  });
+
+console.log(average)
+
+// filter numbers above 30 with reduce
+const euro = [29.76, 41.85, 46.5];
+const above30 = euro.reduce((total, amount) => {
+  if (amount > 30) {
+    total.push(amount);
+  }
+  return total;
+}, []);
+
+console.log(above30)
+
+//Creating a Tally
+const fruitBasket = ['banana', 'cherry', 'orange', 'apple', 'cherry', 'orange', 'apple', 'banana', 'cherry', 'orange', 'fig' ]
+
+const count = fruitBasket.reduce ((tally,  fruit) => {
+    if (fruit in tally) {
+        tally[fruit]++
+    }
+    else {
+        tally[fruit] = 1
+    }
+    return tally
+    },{}
+)
+
+console.log (count)
+
+
+// Creating a tally. Condensed and elegant solution!
+const fruitBasket = ['banana', 'cherry', 'orange', 'apple', 'cherry', 'orange', 'apple', 'banana', 'cherry', 'orange', 'fig' ];
+const count = fruitBasket.reduce( (tally, fruit) => {
+  tally[fruit] = (tally[fruit] || 0) + 1 ;
+  return tally;
+} , {})
+console.log (count)
+
+
+//Flattening an array of arrays with the Reduce Method 
+const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+const flat = data.reduce((total, cur) => {
+    return [...total, ...cur]
+},[]
+)
+console.log (flat)
+
+
+// Find colors in the data
+const data = [
+    {a: 'happy', b: 'robin', c: ['blue','green']}, 
+    {a: 'tired', b: 'panther', c: ['green','black','orange','blue']}, 
+    {a: 'sad', b: 'goldfish', c: ['green','red']}
+  ];
+const color = data
+    .reduce((total, cur) => {
+        return [...total, ...cur.c]},[])
+        
+console.log (color)
+
+//Find unique colors in the data
+const data = [
+    {a: 'happy', b: 'robin', c: ['blue','green']}, 
+    {a: 'tired', b: 'panther', c: ['green','black','orange','blue']}, 
+    {a: 'sad', b: 'goldfish', c: ['green','red']}
+  ];
+const uniqueColor = data.reduce ((total, row) => {
+    row.c.forEach( color => {
+        if (total.indexOf(color) === -1){
+            total.push(color)
+        }
+    })
+    return total;
+}, []
+)
+console.log (uniqueColor)
+
+//Piping with Reduce
+function increment(input) { return input + 1;}
+function decrement(input) { return input - 1; }
+function double(input) { return input * 2; }
+function halve(input) { return input / 2; }
+let pipeline = [increment, double, decrement];
+const result = pipeline.reduce(function(total, func) {
+    return func(total);
+  }, 10);
+  console.log (result)

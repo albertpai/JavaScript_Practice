@@ -24,23 +24,23 @@ function XO(str) {
 console.log(XO('cccOoo'))
 
 
-//Use TOLowerCase and filter
+//Use ToLowerCase and filter
 const XO = str => {
     str = str.toLowerCase().split('');
     return str.filter(x => x === 'x').length === str.filter(x => x === 'o').length;
 }
 
-//TOLowerCase
+//ToLowerCase
 function XO(str) {
     return str.toLowerCase().split('x').length === str.toLowerCase().split('o').length;
 }
 
-//TOLowerCase
+//ToLowerCase
 function XO(str) {
     return str.toLowerCase().replace(/[^x]/g, "").length === str.toLowerCase().replace(/[^o]/g, "").length
 }
 
-//Use replace and RE. A clever solution.
+//Use replace and RE. Clever solution.
 function XO(str) {
     var a = str.replace(/x/gi, ''),
         b = str.replace(/o/gi, '');

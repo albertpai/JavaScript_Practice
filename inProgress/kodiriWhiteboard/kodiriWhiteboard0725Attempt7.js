@@ -6,18 +6,20 @@ const wild = {
             e: 7,
             f: {
                 g: -2,
-                h: 5,
+                h: 5
             }
         }
     }
 }
 
+// Put sum inside the function.
+// Add sum to Line 22.
 
-let sum = 0;
 function add(nest) {
-    for (i in nest) {
+    let sum = 0;
+    for (var i in nest) {
         if (isNaN(nest[i])) {
-            add(nest[i])
+            sum += add(nest[i])
         }
         else {
             sum += nest[i]

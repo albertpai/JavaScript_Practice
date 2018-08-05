@@ -12,49 +12,37 @@ const wild = {
     }
 }
 
+let sum = 0;
 
-let sum1, sum2, sum3, sum4;
-for (var i in wild) {
-    if (isNaN(wild[i])) {
-        for (var j in wild[i]) {
-            if (isNaN(wild[i][j])) {
-                for (var k in wild[i][j]) {
-                    if (isNaN(wild[i][j][k])) {
-                        for (var l in wild[i][j][k]) {
-                            sum4 += wild[i][j][k][l]
+function add(nest) {
+    for (var i in nest) {
+        if (isNaN(nest[i])) {
+            for (var j in nest[i]) {
+                if (isNaN(nest[i][j])) {
+                    for (var k in nest[i][j]) {
+                        if (isNaN(nest[i][j][k])) {
+                            for (var l in nest[i][j][k]) {
+                                // console.log(nest[i][j][k][l])
+                                sum += nest[i][j][k][l]
+                            }
+                        }
+                        else {
+                            sum += nest[i][j][k]
                         }
                     }
-                    else { sum3 += wild[i][j][k] + sum4 }
+                    return sum
+                }
+                else {
+                    sum += nest[i][j]
                 }
             }
-            else { sum2 += wild[i][j] + sum3 }
+            return sum
+        }
+        else {
+            sum += nest[i]
         }
     }
-    else { sum1 += wild[i] + sum2 }
+    return sum
 }
 
-console.log(sum1)
-
-/*Test
-const wild = {
-    a: 1,
-    b: {
-        c: 2,
-        d: {
-            e: 7,
-            f: {
-                g: -2,
-                h: 5,
-            }
-        }
-    }
-}
-
-
-for (i in wild) {
-    if (i === obj){
-        console.log(wild[i].length)
-    }
-    else {
-        console.log(wild[i])
-*/
+console.log(add(wild))

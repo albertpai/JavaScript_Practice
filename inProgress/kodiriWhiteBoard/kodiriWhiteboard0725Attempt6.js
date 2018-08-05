@@ -13,17 +13,22 @@ const wild = {
 }
 
 
-let sum = 0;
-function add(nest) {
-    for (i in nest) {
-        if (isNaN(nest[i])) {
-            add(nest[i])
+function Additems(){
+    let sum = 0;
+    function add(nest) {
+        for (i in nest) {
+            if (isNaN(nest[i])) {
+                add(nest[i])
+            }
+            else {
+                sum += nest[i]
+            }
         }
-        else {
-            sum += nest[i]
-        }
+        return sum
     }
-    return sum
+    return add(wild);
 }
 
-console.log(add(wild))
+console.log(Additems())
+// Wrap sum in a closure.
+// console.log(sum) will logs 'sum is undefined'.
