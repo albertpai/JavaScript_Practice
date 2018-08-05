@@ -15,3 +15,11 @@ Input: 145263 Output: 654321
 
 Input: 1254859723 Output: 9875543221
 */
+
+//My answer to practice
+function descendingOrder(num) {
+    newNum = num.toString().split('').sort().reverse().join('')
+	return Number(newNum)
+}
+
+console.log(descendingOrder(48978924))
